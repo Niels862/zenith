@@ -14,6 +14,8 @@ class Text:
         c = self.data[self.p]
         while not self.end() and c in " \t\n\r":
             self.p += 1
+            if not self.end():
+                c = self.data[self.p]
 
     def next(self):
         if self.p < len(self.data):

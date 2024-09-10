@@ -1,6 +1,6 @@
 from tree import *
 from kinds import *
-from operator import add, sub, mul, truediv, mod, pow, eq, lt, gt
+from operator import add, sub, mul, truediv, mod, pow, eq, lt, gt, getitem
 
 
 class Frame:
@@ -29,7 +29,9 @@ class Interpreter:
             ">": (gt, 2),
             "⤶": (lambda: StringObject(input()), 0),
             "⤷": (lambda x: [print(x), x][1], 1),
-            "∅": (lambda: ListObject(), 0)
+            "∅": (lambda: ListObject(), 0),
+            "#": (lambda x: x.length(), 1),
+            "@": (getitem, 2)
         }
         for key, (func, arity) in ops.items():
             self.decls[key] = BuiltinFunctionObject(func, arity)

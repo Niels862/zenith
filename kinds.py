@@ -42,7 +42,7 @@ class NumberObject(Object):
         return NumberObject(self.num + other.num)
 
     def __sub__(self, other):
-        return NumberObject(self.num + other.num)
+        return NumberObject(self.num - other.num)
     
     def __mul__(self, other):
         return NumberObject(int(self) * int(other))

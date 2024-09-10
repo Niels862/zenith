@@ -6,7 +6,6 @@ from interpreter import Interpreter
 def main():
     with open("main.zn", "r") as file:
         ast = Parser(Text(file.read())).parse()
-    print(ast)
     ret = Interpreter(ast).interpret()
     print(ret)
 

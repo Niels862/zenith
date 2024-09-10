@@ -7,6 +7,7 @@ class Frame:
     def __init__(self):
         self.map = {}
 
+guard = 100 
 
 class Interpreter:
     def __init__(self, ast):
@@ -147,7 +148,7 @@ class Interpreter:
     def eval_loop(self, node, i, n):
         s = 0
         j = 0
-        if not int(n):
+        if int(n) <= 0:
             return self.skip_expr_part(node, i), NumberObject(0)
         for it in range(int(n)):
             self.set_var("i", NumberObject(it))
